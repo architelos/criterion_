@@ -11,4 +11,10 @@ criterion.addTest("pass", () => {
     return res;
 }, 4).addTest("error", () => {
     throw new Error("Hi, I'm Delta!");
-}, undefined).runTests();
+}, undefined).addTest("async", () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Hello world!");
+        }, 1000);
+    });
+}, "Hello world!").runTests();
