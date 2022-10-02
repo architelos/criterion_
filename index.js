@@ -73,7 +73,7 @@ class Criterion_ {
     }
 
     async #runTests() {
-        for (const testIndex in this.#tests) {
+        for (let testIndex = 0; testIndex < this.#tests.length; testIndex++) {
             try {
                 this.#testName = this.#testNames[testIndex];
                 this.#test = this.#tests[testIndex];
